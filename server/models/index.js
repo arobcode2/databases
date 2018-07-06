@@ -2,8 +2,13 @@ var db = require('../db');
 
 module.exports = {
   messages: {
-    get: function () {}, // a function which produces all the messages
-    post: function () {} // a function which can be used to insert a message into the database
+    get: function () {
+      var queryStr = `SELECT * FROM messages`;
+    return db.myQuery(queryStr)
+    }, // a function which produces all the messages
+    post: function (text, user, room) {
+      var queryStr = `INSERT INTO messages (time, text, user, room) Values (${Date.now()}, ${text}, ${user}, ${room})`;
+    return db.myQuery(queryStr)} // a function which can be used to insert a message into the database
   },
 
   users: {
