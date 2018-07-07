@@ -18,12 +18,12 @@ CREATE TABLE users (
 CREATE TABLE messages (
   /* Describe your table here.*/
   /*id, time stamp, text, should point to a user id and a room id*/
-  id int, time int, text text, user int, room int, PRIMARY KEY (id), FOREIGN KEY (user) REFERENCES users(id), FOREIGN KEY (room) REFERENCES rooms(id)
+  id int not null auto_increment, time bigint, text text, user text, room text, PRIMARY KEY (id) 
 );
 /* Create other tables and define schemas for them here! */
 
 
-
+alter table messages auto_increment=1001;
 
 /*  Execute this file from the command line by typing:
  *    mysql -u root < server/schema.sql
