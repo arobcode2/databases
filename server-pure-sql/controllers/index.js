@@ -16,7 +16,7 @@ module.exports = {
       if (!req.body) {
         return res.status(400).send('Invalid POST Request');
       } else {
-        var result = models.messages.post(req.body);
+        var result = models.messages.post(req.body.message,req.body.username,req.body.roomname);
         result.then(val=>{
           return res.status(201).send('Message Added');
         }).catch(err=>{
@@ -42,7 +42,7 @@ module.exports = {
       if (!req.body) {
         return res.status(400).send('Invalid POST Request');
       } else {
-        var result = models.users.post(req.body);
+        var result = models.users.post(req.body.username);
         result.then(val=>{
           return res.status(201).send('User Added');
         }).catch(err=>{

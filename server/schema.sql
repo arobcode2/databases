@@ -14,13 +14,13 @@ CREATE TABLE rooms (
 CREATE TABLE users (
   /* Describe your table here.*/
   /* id, name*/
-  id int not null auto_increment, name text, PRIMARY KEY (id)
+  id int not null auto_increment, username text, PRIMARY KEY (id)
 );
 
 CREATE TABLE messages (
   /* Describe your table here.*/
   /*id, time stamp, text, should point to a user id and a room id*/
-  id int not null auto_increment, createdAt bigint, message text, user text, room text, PRIMARY KEY (id) 
+  id int not null auto_increment, createdAt bigint, message text, username text, roomname text, PRIMARY KEY (id) 
 );
 /* Create other tables and define schemas for them here! */
 
